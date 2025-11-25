@@ -7,7 +7,7 @@ import React, { useState } from "react";
 type LibraryProviderProps = {
     children: React.ReactNode;
 };
-type dataObj = {
+export type dataObj = {
     name: string,
     id: number,
     desc: string
@@ -46,6 +46,11 @@ type LibraryContextType = {
 
 //     </LibraryContext.Provider>
 // }
+
+
+
+
+
 export const LibraryContext = React.createContext<LibraryContextType | null>(null);
 
 export const LibraryContextProvider = ({ children }: LibraryProviderProps) => {
@@ -59,3 +64,5 @@ export const LibraryContextProvider = ({ children }: LibraryProviderProps) => {
         </LibraryContext.Provider>
     );
 };
+
+export default LibraryContextProvider

@@ -5,14 +5,14 @@ import Add from './Components/Add'
 import Logo from './Components/Logo'
 import Nav from './Components/Nav'
 import Home from './Pages/Home'
-import { LibrabryContextProvider } from './Context/LibraryContext'
+import LibraryContextProvider from './Context/LibraryContext'
 
 function App() {
 
 
   return (
     <>
-      <LibrabryContextProvider>
+      <LibraryContextProvider>
 
         <div className='app-main'>
           <Logo />
@@ -20,7 +20,10 @@ function App() {
           <Add />
           <Nav />
         </div>
-      </LibrabryContextProvider>
+      </LibraryContextProvider>
+
+
+
 
     </>
   )
