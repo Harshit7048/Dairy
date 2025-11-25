@@ -1,14 +1,61 @@
-import React, { Children } from "react";
+import React, { useState } from "react";
 
-import { createContext } from "react";
 
-type DailyObject = {
-    date: Date,
+
+
+
+type LibraryProviderProps = {
+    children: React.ReactNode;
+};
+type dataObj = {
+    name: string,
     id: number,
-    descriptiton: string
+    desc: string
 }
 
+type LibraryContextType = {
+    data: dataObj[],
+    setDataSet: React.Dispatch<React.SetStateAction<dataObj[]>>
+    addItem: (item: dataObj) => void
+}
 
-const LibraryContext = createContext<DailyObject[] | undefined>()
+// const dummyData: dataObj = {
+//     id: 123,
+//     name: "first ",
+//     desc: "This is the first dataobj"
+// }
 
-export default LibraryContext
+
+
+
+
+// export const LibraryContext = React.createContext<LibraryContextType | null>(null);
+
+
+// export const LibrabryContextProvider = ({ children }: LibraryProviderProps) => {
+
+//     const [dataSet, setDataSet] = useState<dataObj[]>([])
+
+//     const addItem = (item: dataObj) => {
+//         setDataSet(prev => [...prev, item])
+//     }
+
+//     return <LibraryContext.Provider value={dataSet, setDataSet, addItem}>
+
+//         {children}
+
+//     </LibraryContext.Provider>
+// }
+export const LibraryContext = React.createContext<LibraryContextType | null>(null);
+
+export const LibraryContextProvider = ({ children }: LibraryProviderProps) => {
+    const [dataSet, setDataSet] = useState<dataObj[]>([]);
+
+    const addItem = (item: dataObj) => setDataSet(prev => [...prev, item]);
+
+    return (
+        <LibraryContext.Provider value={{ data: dataSet, setDataSet, addItem }}>
+            {children}
+        </LibraryContext.Provider>
+    );
+};
