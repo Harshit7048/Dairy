@@ -7,17 +7,21 @@
 
     body {
         background-color: rebeccapurple;
+        background-image: url('./Assets/_.jpeg');
+
     }
 
     .app-main {
         height: 100vh;
         width: 100%;
-        background-color: rgb(21, 21, 21);
+        background-color: rgb(21, 21, 21, 0.5);
         color: white;
         padding: 1rem;
         position: relative;
         overflow: hidden;
         font-family: "Montserrat", sans-serif;
+        /* background-image: url('./Assets/_.jpeg');  */
+
 
     }
 
@@ -27,11 +31,16 @@
         height: 80%;
         margin-top: 5%;
         padding: 10px;
-        background: none;
-        /* border: 1px solid rgb(236, 232, 232, 0.5); */
-        /* box-shadow: 0.5px -0.5px 10px rgb(50, 49, 49); */
+        background: rgb(27, 26, 26, 0.2);
+        border: 1px solid rgba(81, 78, 78, 0.5);
+        box-shadow: 0.5px -0.5px 10px rgb(66, 65, 65);
         border-radius: 25px;
+        overflow-y: scroll;
 
+    }
+
+    .home::--webkit-scrollbar {
+        display: none;
     }
 
     /* Nav */
@@ -46,7 +55,7 @@
         border-radius: 25px;
         padding: 20px;
 
-        box-shadow: 0.5px -0.5px 15px rgb(41, 40, 40);
+        box-shadow: 0.5px -0.5px 15px rgb(87, 86, 86);
     }
 
     /* Logo */
@@ -69,8 +78,8 @@
         font-size: 50px;
         background-color: rgb(168, 108, 229);
         position: fixed;
-        right: 5%;
-        bottom: 16%;
+        right: 6%;
+        bottom: 3%;
         cursor: pointer;
     }
 
@@ -79,13 +88,13 @@
 
         height: fit-content;
         width: 100%;
-        background-color: rgb(222, 221, 219);
+        background-color: rgba(101, 99, 96, 0.5);
         border-radius: 20px;
         padding: 20px;
         /* box-shadow: 0.5px -0.5px 15px rgb(41, 40, 40); */
         overflow-y: scroll;
         margin-top: 10px;
-        color: black;
+        color: rgb(255, 255, 255);
     }
 
 
@@ -103,5 +112,46 @@
         width: 70px;
         /* border-radius: 50%; */
         margin-right: 10px;
+    }
+
+    /* Full dairy page */
+    .full-dairy-page {
+
+
+        width: 100%;
+        background: rgb(27, 26, 26, 0.01);
+        /* border-radius: 25px; */
+        padding: 10px;
+        box-shadow: 0.5px -0.5px 15px rgb(87, 86, 86);
+        /* overflow-y: scroll; */
+        z-index: 10;
+        margin-top: 50px;
+        border: 10px solid rgb(241, 236, 236);
+    }
+
+    .dairy-page-inside {
+        height: fit-content;
+        width: 100%;
+        /* background-color: rgba(101, 99, 96, 0.5); */
+        padding: 10px;
+        position: relative;
+    }
+
+    .dairy-page-inside img {
+        height: 150px;
+        width: 150px;
+        /* border-radius: 15px; */
+        margin-top: 10px;
+        position: absolute;
+        top: 0%;
+        right: 0;
+        /* transform: rotateZ(15deg); */
+        z-index: 999;
+        border: 5px solid black;
+
+    }
+
+    .page-text {
+        width: 50%;
     }
 }

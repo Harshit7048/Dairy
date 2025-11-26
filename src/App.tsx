@@ -6,6 +6,9 @@ import Logo from './Components/Logo'
 import Nav from './Components/Nav'
 import Home from './Pages/Home'
 import LibraryContextProvider from './Context/LibraryContext'
+import { Routes } from 'react-router-dom'
+import { Route } from 'react-router-dom'
+import FullDairyPage from './Pages/FullDairyPage'
 
 function App() {
 
@@ -16,9 +19,14 @@ function App() {
 
         <div className='app-main'>
           <Logo />
-          <Home />
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/add' element={<Add />} />
+            <Route path='/full-dairy/:currentId' element={<FullDairyPage />} />
+          </Routes>
+          {/* <Home /> */}
           <Add />
-          <Nav />
+          {/* <Nav /> */}
         </div>
       </LibraryContextProvider>
 

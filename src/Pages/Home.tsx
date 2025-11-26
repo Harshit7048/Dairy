@@ -18,7 +18,7 @@ export default function Home() {
     }, [data])
 
     return <div className="home">
-        <h1>Hello Home</h1>
+        <h1></h1>
         {data && data.map(item => (
             <DayOverview title={item.title} content={item.content} id={item.id} date={item.date} main_img={item.main_img} />
         ))}

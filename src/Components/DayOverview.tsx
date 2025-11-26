@@ -1,3 +1,8 @@
+import { useContext } from "react"
+import { LibraryContext } from "../Context/LibraryContext"
+import { useNavigate } from "react-router-dom"
+
+
 
 type DayOverviewProps = {
     id: number
@@ -8,7 +13,17 @@ type DayOverviewProps = {
 }
 
 export default function DayOverview(props: DayOverviewProps) {
-    return <div className="day-overview">
+
+    const navigate = useNavigate()
+    const ctx = useContext(LibraryContext)
+    if (!ctx) return null
+
+
+    return <div className="day-overview" onClick={() => {
+
+        console.log("Current ID set to:", props.id);
+        navigate(`/full-dairy/${props.id}`)
+    }}>
         <div className="day-overview-outer">
             <div>
                 <span>{props.date}</span>
@@ -16,7 +31,7 @@ export default function DayOverview(props: DayOverviewProps) {
                 <h2>{props.title}</h2>
             </div>
             <div>
-                <img src={props.main_img} alt="" />
+                <img src={props.main_img ?? ''} alt="" />
             </div>
 
         </div>

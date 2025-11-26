@@ -20,6 +20,55 @@ let DiaryData = [
         date: "2023-03-22",
         main_img: "https://artmarketmag.com/wp-content/uploads/2025/03/Cran-Montana-100-x-100-cm.jpg"
     },
+    {
+        id: 3,
+        title: "Vacation Time",
+        content: "I went on a vacation to the mountains. The scenery was breathtaking!",
+        date: "2023-03-22",
+        main_img: "https://artmarketmag.com/wp-content/uploads/2025/03/Cran-Montana-100-x-100-cm.jpg"
+    },
+    {
+        id: 3,
+        title: "Vacation Time",
+        content: "I went on a vacation to the mountains. The scenery was breathtaking!",
+        date: "2023-03-22",
+        main_img: "https://artmarketmag.com/wp-content/uploads/2025/03/Cran-Montana-100-x-100-cm.jpg"
+    },
+    {
+        id: 3,
+        title: "Vacation Time",
+        content: "I went on a vacation to the mountains. The scenery was breathtaking!",
+        date: "2023-03-22",
+        main_img: "https://artmarketmag.com/wp-content/uploads/2025/03/Cran-Montana-100-x-100-cm.jpg"
+    },
+    {
+        id: 3,
+        title: "Vacation Time",
+        content: "I went on a vacation to the mountains. The scenery was breathtaking!",
+        date: "2023-03-22",
+        main_img: "https://artmarketmag.com/wp-content/uploads/2025/03/Cran-Montana-100-x-100-cm.jpg"
+    },
+    {
+        id: 3,
+        title: "Vacation Time",
+        content: "I went on a vacation to the mountains. The scenery was breathtaking!",
+        date: "2023-03-22",
+        main_img: "https://artmarketmag.com/wp-content/uploads/2025/03/Cran-Montana-100-x-100-cm.jpg"
+    },
+    {
+        id: 3,
+        title: "Vacation Time",
+        content: "I went on a vacation to the mountains. The scenery was breathtaking!",
+        date: "2023-03-22",
+        main_img: "https://artmarketmag.com/wp-content/uploads/2025/03/Cran-Montana-100-x-100-cm.jpg"
+    },
+    {
+        id: 3,
+        title: "Vacation Time",
+        content: "I went on a vacation to the mountains. The scenery was breathtaking!",
+        date: "2023-03-22",
+        main_img: "https://artmarketmag.com/wp-content/uploads/2025/03/Cran-Montana-100-x-100-cm.jpg"
+    },
 
 ]
 
