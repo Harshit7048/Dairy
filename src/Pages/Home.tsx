@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react"
+import { useContext, useEffect, useState } from "react"
 import { LibraryContext } from "../Context/LibraryContext"
 import DairyData from "../Assets/BaseData.js"
 import DayOverview from "../Components/DayOverview.js"
@@ -17,10 +17,29 @@ export default function Home() {
 
     }, [data])
 
+    const [classCurrent, setClassCurrent] = useState("deactive")
+
     return <div className="home">
         <h1></h1>
-        {data && data.map(item => (
-            <DayOverview title={item.title} content={item.content} id={item.id} date={item.date} main_img={item.main_img} />
-        ))}
+        <div className="overall-info">
+            <span><i className="fa-solid fa-calendar"></i></span>
+        </div>
+        <div className="see-prev" onClick={() => {
+            if (classCurrent === "deactive") {
+                setClassCurrent("active")
+            } else {
+                setClassCurrent("deactive")
+            }
+            console.log(classCurrent);
+        }}>
+            <span>See Previous</span>
+            <span  ><i className="fa-solid fa-caret-down"></i></span>
+        </div>
+        <div className={`prev-entry ${classCurrent}`}  >
+            {data && data.map(item => (
+                <DayOverview title={item.title} content={item.content} id={item.id} date={item.date} main_img={item.main_img} />
+            ))}
+        </div>
+
     </div>
 }

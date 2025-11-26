@@ -26,7 +26,7 @@ function App() {
           </Routes>
           {/* <Home /> */}
           <Add />
-          {/* <Nav /> */}
+          <Nav />
         </div>
       </LibraryContextProvider>
 
