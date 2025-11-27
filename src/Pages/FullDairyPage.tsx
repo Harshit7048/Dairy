@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import { LibraryContext } from "../Context/LibraryContext"
 import { useParams } from "react-router-dom"
+import Todo from "../Components/Todo"
 
 
 type DiaryEntry = {
@@ -42,6 +43,8 @@ export default function FullDairyPage() {
             </div>
 
             {diaryEntry.main_img && <img src={diaryEntry.main_img} alt={diaryEntry.title} />}
+
+            <Todo />
         </div>
 
     </div>

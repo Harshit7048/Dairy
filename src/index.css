@@ -37,6 +37,7 @@
 
         border-radius: 25px;
         overflow-y: scroll;
+        padding-bottom: 20%;
 
     }
 
@@ -100,6 +101,10 @@
         font-size: 25px;
     }
 
+    .current-day-info {
+        background-color: tan;
+    }
+
     /* Logo */
     .logo {
         font-size: 35px;
@@ -150,11 +155,26 @@
         position: relative;
     }
 
+    .nav-home a {
+        color: rgb(255, 255, 255);
+        display: block;
+        margin-top: 0px !important;
+        padding-bottom: 0px !important;
+
+    }
+
+    .nav-home a.active {
+
+        overflow-y: hidden !important;
+
+    }
+
     .nav-home i {
-        color: white;
-        font-size: 30px;
+        /* color: white; */
+        font-size: 2.5rem;
         cursor: pointer;
     }
+
 
 
 
@@ -277,8 +297,10 @@
         margin-top: 50px;
 
         border-radius: 20px;
-        color: rgb(0, 0, 0);
+        color: rgb(182, 180, 180);
         height: 80%;
+        overflow-y: scroll;
+        padding-bottom: 50px;
     }
 
     .dairy-page-inside {
@@ -306,4 +328,151 @@
     .page-text {
         width: 50%;
     }
+
+    .todo-dairy {
+        background-color: rebeccapurple;
+        margin-top: 20%;
+        border-radius: 15px;
+        padding: 10px;
+    }
+
+    .main-todo {
+        list-style: none;
+        height: 4.5vh;
+        background: red;
+        display: block;
+        margin-top: 10px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        overflow-y: scroll;
+
+    }
+
+    .todo-status {
+        min-height: 10vh;
+        height: fit-content;
+        background-color: tan;
+        color: black;
+        border-radius: 10px;
+        margin-top: 10px;
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+        padding: 10px;
+    }
+
+    .todo-img-box {
+        height: 100px;
+        width: 100px;
+        background-color: rebeccapurple;
+    }
+
+    /* Add todo */
+    .add-todo {
+        padding: 10px;
+        margin-top: 50px;
+        height: fit-content;
+        overflow-y: scroll;
+        border-radius: 20px;
+        background-color: rgb(50, 52, 53);
+        padding-bottom: 20px;
+    }
+
+    .add-todo p {
+        margin-top: 10px;
+        color: rgb(131, 126, 126);
+
+    }
+
+    .todo-form {
+        margin-top: 20px;
+        padding: 10px;
+    }
+
+    .add-todo label {
+        color: rgb(255, 255, 255);
+
+        font-size: 20px;
+    }
+
+    .add-todo input,
+    .add-todo textarea {
+        width: 60%;
+        margin-top: 10px;
+        padding: 10px;
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        height: 50px !important;
+        display: inline-block;
+
+    }
+
+    .todo-input-box {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    /* User Login */
+    .user-login {
+        color: white;
+        font-size: 25px;
+        min-height: 30vh;
+        background: rgb(54, 53, 53);
+        border-radius: 15px;
+        padding: 20px;
+        margin-top: 50px;
+
+    }
+
+    .user-login-form {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+
+
+
+    .user-login-form label {
+        font-size: 20px;
+        padding-bottom: 0px;
+        margin-bottom: 0px;
+    }
+
+    .user-login-form input {
+        width: 60%;
+        margin-top: 10px;
+        padding: 10px;
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        height: 60px !important;
+        display: inline-block;
+
+    }
+
+    .login-btn {
+
+        padding: 10px 20px;
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        background-color: rgb(176, 197, 239);
+        font-weight: 600;
+        cursor: pointer;
+        margin: auto;
+        margin-top: 20px;
+        width: 90%;
+        height: 50px;
+        display: block;
+        cursor: pointer;
+    }
+
+
+
 }

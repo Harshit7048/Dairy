@@ -1,14 +1,27 @@
 import { useState } from "react"
 
-export default function Add() {
+import { useContext } from "react"
+import { LibraryContext } from "../Context/LibraryContext"
+import { useNavigate } from "react-router-dom"
 
+export default function Add() {
     const [sideBtnActive, setSideBtnActive] = useState("btn-deactive")
+    const navigate = useNavigate()
+    const ctx = useContext(LibraryContext)
+    if (!ctx) return null
+
+
 
 
     return <div className="add-btn-main">
 
         <div className={`side-btns ${sideBtnActive}`}>
-            <div className="top-btn inner-btn">
+            <div className="top-btn inner-btn"
+                onClick={() => {
+                    navigate('/add-todo')
+                    setSideBtnActive("btn-deactive")
+                }
+                }>
                 Add ToDo
             </div>
             <div className="bottom-btn inner-btn">Add Journal</div>

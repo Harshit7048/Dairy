@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react"
 import { LibraryContext } from "../Context/LibraryContext"
 import DairyData from "../Assets/BaseData.js"
 import DayOverview from "../Components/DayOverview.js"
+import Todo from "../Components/Todo.js"
 
 
 export default function Home() {
@@ -24,6 +25,14 @@ export default function Home() {
         <div className="overall-info">
             <span><i className="fa-solid fa-calendar"></i></span>
         </div>
+
+
+        <div className="current-day-info">
+            <Todo />
+        </div>
+
+
+
         <div className="see-prev" onClick={() => {
             if (classCurrent === "deactive") {
                 setClassCurrent("active")
