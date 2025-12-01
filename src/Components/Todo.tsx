@@ -1,50 +1,48 @@
+import { useContext, useEffect } from "react"
+import UserBaseContext from "../Context/UserBaseContext";
+
+
 export default function Todo() {
+    const userBaseContext = useContext(UserBaseContext);
+    const todos = userBaseContext?.todos || [];
+
+    useEffect(() => {
+        console.log("Todo Component Mounted");
+        console.log("User Base Context:", userBaseContext);
+    }, [userBaseContext]);
+
+
     return (
         <div className="todo-dairy">
-            <h2>This is Todo</h2>
+            <h2>Current Todo</h2>
+
+
+
+
             <div>
-                <ul>
 
-                    <li className="main-todo">
-                        <span>Todo Title</span>
-                        <span  ><i className="fa-solid fa-caret-down"></i></span>
+                {todos.length === 0 ? <p>No todos available.</p> : todos.map((todo, index) => (
+                    <div key={index}>
+                        <li className="main-todo" style={{ background: todo.color }}>
+                            <span>{todo.title}</span>
+                            <span  ><i className="fa-solid fa-caret-down"></i></span>
 
-                    </li>
-                    <div className="todo-status">
-                        <div className="todo-final-status">
-                            completed
-                        </div>
-                        <div className="todo-img-box"></div>
+                        </li>
+                        {/* <div className="todo-status">
+                            <div className="todo-final-status">
+                                {todo.status}
+                            </div>
+                            <div className="todo-img-box">
+                                <img src={todo.img} alt="" />
+                            </div>
 
+                        </div> */}
                     </div>
+                ))}
 
-                    <li className="main-todo">
-                        <span>Todo Title</span>
-                        <span  ><i className="fa-solid fa-caret-down"></i></span>
-
-                    </li>
-                    <div className="todo-status">
-                        <div className="todo-final-status">
-                            completed
-                        </div>
-                        <div className="todo-img-box"></div>
-
-                    </div>
-
-                    <li className="main-todo">
-                        <span>Todo Title</span>
-                        <span  ><i className="fa-solid fa-caret-down"></i></span>
-
-                    </li>
-                    <div className="todo-status">
-                        <div className="todo-final-status">
-                            completed
-                        </div>
-                        <div className="todo-img-box"></div>
-
-                    </div>
-                </ul>
             </div>
+
         </div>
+
     )
 }

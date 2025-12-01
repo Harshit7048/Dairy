@@ -3,6 +3,7 @@ import { LibraryContext } from "../Context/LibraryContext"
 import DairyData from "../Assets/BaseData.js"
 import DayOverview from "../Components/DayOverview.js"
 import Todo from "../Components/Todo.js"
+import Quotes from "../Components/Quotes.js"
 
 
 export default function Home() {
@@ -11,9 +12,9 @@ export default function Home() {
 
     useEffect(() => {
         console.log("Home Component Mounted");
-        console.log(data);
+
         setDataSet(DairyData);
-        console.log(data);
+
 
 
     }, [data])
@@ -22,6 +23,7 @@ export default function Home() {
 
     return <div className="home">
         <h1></h1>
+        <Quotes />
         <div className="overall-info">
             <span><i className="fa-solid fa-calendar"></i></span>
         </div>
