@@ -14,16 +14,25 @@ export default function Quotes() {
 
     useEffect(() => {
         console.log("Quotes Component Mounted");
-        // fetch(" https://goquotes-api.herokuapp.com/api/v1/random?count=1").then(res => res.json()).then(dataFinal => {
-        //     console.log(dataFinal);
-        // }).catch(err => {
-        //     console.log(err)
-        // })
+        //         fetch(`curl -X GET "https://api.api-ninjas.com/v2/quotes?categories=success,wisdom" \
+        //   -H "X-Api-Key: cBRtYlSPMM5yRjjUkvSOzw==vFStpAg8yUc1XmQr"
+        // `).then(res => res.json()).then(dataFinal => {
+        //             console.log(dataFinal);
+        //         }).catch(err => {
+        //             console.log(err)
+        //         })
+
+        // cBRtYlSPMM5yRjjUkvSOzw==vFStpAg8yUc1XmQr
 
 
     }, [])
 
     return <div className="quotes">
-        "The best way to predict the future is to create it." - Peter Drucker
+        <span>
+
+            "The best way to predict the future is to create it."
+        </span>
+        <span className="q-auth">
+            - Peter Drucker</span>
     </div>;
 }

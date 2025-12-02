@@ -4,20 +4,17 @@ import DairyData from "../Assets/BaseData.js"
 import DayOverview from "../Components/DayOverview.js"
 import Todo from "../Components/Todo.js"
 import Quotes from "../Components/Quotes.js"
+import UserBaseContext from "../Context/UserBaseContext";
+import Calender from "../Components/Calender";
+
 
 
 export default function Home() {
-    const { data, setDataSet } = useContext(LibraryContext)
+
+    const userBaseContext = useContext(UserBaseContext);
+    const dairyData = userBaseContext?.diaries || DairyData;
 
 
-    useEffect(() => {
-        console.log("Home Component Mounted");
-
-        setDataSet(DairyData);
-
-
-
-    }, [data])
 
     const [classCurrent, setClassCurrent] = useState("deactive")
 
@@ -25,7 +22,8 @@ export default function Home() {
         <h1></h1>
         <Quotes />
         <div className="overall-info">
-            <span><i className="fa-solid fa-calendar"></i></span>
+             
+            <Calender/>
         </div>
 
 
@@ -47,8 +45,15 @@ export default function Home() {
             <span  ><i className="fa-solid fa-caret-down"></i></span>
         </div>
         <div className={`prev-entry ${classCurrent}`}  >
-            {data && data.map(item => (
-                <DayOverview title={item.title} content={item.content} id={item.id} date={item.date} main_img={item.main_img} />
+            {dairyData.map((diaryEntry, index) => (
+                <DayOverview
+                    key={index}
+                    id={diaryEntry.id}
+                    title={diaryEntry.title}
+                    content={diaryEntry.content}
+                    date={diaryEntry.date}
+                    main_img={diaryEntry.main_img}
+                />
             ))}
         </div>
 

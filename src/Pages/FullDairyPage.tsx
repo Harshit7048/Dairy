@@ -2,17 +2,14 @@ import { useContext } from "react"
 import { LibraryContext } from "../Context/LibraryContext"
 import { useParams } from "react-router-dom"
 import Todo from "../Components/Todo"
+import UserBaseContext from "../Context/UserBaseContext"
 
 
-type DiaryEntry = {
-    id: number
-    title: string
-    content: string
-    date: string
-    main_img?: string
-}
+
 
 export default function FullDairyPage() {
+    const userBaseContext = useContext(UserBaseContext);
+    const dairyData = userBaseContext?.diaries || [];
     const { currentId } = useParams()
     const ctx = useContext(LibraryContext)
 
@@ -23,7 +20,7 @@ export default function FullDairyPage() {
 
     // Convert string ID to number and find the matching diary entry
     // Type assertion needed because context type doesn't match actual diary data structure
-    const diaryEntry = (data as unknown as DiaryEntry[]).find(item => item.id === Number(currentId))
+    const diaryEntry = (dairyData).find(item => item.id === currentId);
     console.log("Found diary entry:", diaryEntry);
 
     if (!diaryEntry) {
@@ -44,7 +41,7 @@ export default function FullDairyPage() {
 
             {diaryEntry.main_img && <img src={diaryEntry.main_img} alt={diaryEntry.title} />}
 
-            <Todo />
+
         </div>
 
     </div>

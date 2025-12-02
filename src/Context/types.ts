@@ -3,14 +3,17 @@ export interface Diary {
     title: string;
     content: string;
     main_img?: string;
+    id: string
 }
+
+type TodoStatus = "Completed" | "Pending" | "in-progress";
 
 export interface Todo {
     date: string;
     title: string;
     color: string;
-    status: string;
-    img: string;
+    status: TodoStatus;
+    img?: string;
 }
 
 export interface UserBase {

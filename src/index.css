@@ -51,7 +51,7 @@
         font-size: 18px;
         margin-bottom: 10px;
         background: rgb(84, 98, 101);
-        height: 30%;
+        height: fit-content;
         border-radius: 15px;
         padding: 10px;
         display: flex;
@@ -61,6 +61,80 @@
 
     .overall-info span i {
         font-size: 5rem;
+    }
+
+    /* Calendar Styles */
+    .calendar-container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        color: white;
+        padding: 5px;
+    }
+
+    .calendar-header {
+        text-align: center;
+        margin-bottom: 6px;
+    }
+
+    .calendar-header h3 {
+        font-size: 14px;
+        font-weight: 600;
+        margin: 0;
+    }
+
+    .calendar-grid {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 3px;
+        flex: 1;
+        min-height: 0;
+    }
+
+    .calendar-day-name {
+        text-align: center;
+        font-size: 11px;
+        font-weight: 600;
+        padding: 4px 0;
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    .calendar-day {
+        aspect-ratio: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+        color: rgba(255, 255, 255, 0.9);
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .calendar-day:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .calendar-day-other-month {
+        opacity: 0.3;
+        cursor: default;
+    }
+
+    .calendar-day-other-month:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .calendar-day-today {
+        background-color: rgb(176, 197, 239);
+        color: rgb(17, 17, 17);
+        font-weight: 700;
+        box-shadow: 0 0 8px rgba(176, 197, 239, 0.5);
+    }
+
+    .calendar-day-today:hover {
+        background-color: rgb(176, 197, 239);
     }
 
     .prev-entry {
@@ -446,6 +520,29 @@
         justify-content: space-between;
     }
 
+    .todo-added {
+        position: absolute;
+        bottom: 0%;
+        right: 50%;
+        transform: translate(50%);
+        color: white;
+        background: white;
+        width: 40%;
+        height: 50px;
+        color: black;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 15px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .todo-visible {
+        bottom: 20%;
+        z-index: 9999;
+    }
+
     /* User Login */
     .user-login {
         color: white;
@@ -504,6 +601,21 @@
 
     .quotes {
         color: white;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        padding-top: 10px;
+        padding-bottom: 20px;
+    }
+
+    .quotes span:nth-child(1) {
+        font-size: 18px;
+        font-style: italic;
+    }
+
+    .quotes span:nth-child(2) {
+        font-size: 14px;
+        font-style: italic;
     }
 
 
