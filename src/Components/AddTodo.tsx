@@ -28,8 +28,8 @@ export default function AddTodo() {
         if (!userBaseContext.todos) {
             return
         }
-        userBaseContext.todos.push(newTodo);
-        console.log("Updated Todos:", userBaseContext.todos);
+        userBaseContext.diaries.todos.push(newTodo);
+        console.log("Updated Todos:", userBaseContext.diaries.todos);
 
 
 

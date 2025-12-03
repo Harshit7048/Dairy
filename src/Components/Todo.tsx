@@ -1,18 +1,36 @@
-import { useContext, useEffect, useRef, useState } from "react"
+import { useContext } from "react"
 import UserBaseContext from "../Context/UserBaseContext";
+import type { Todo } from "../Context/types";
+import DateContext from "../Context/DateContext";
 
 
 export default function Todo() {
     const userBaseContext = useContext(UserBaseContext);
-    const todos = userBaseContext?.todos || [];
-    // const todoStatusRef = useRef<HTMLDivElement>(null);
-    const [statusActive, setStatusActive] = useState(false);
+    const currentDate = useContext(DateContext);
 
-    useEffect(() => {
-        console.log("Todo Component Mounted");
-        console.log("User Base Context:", userBaseContext);
-    }, [userBaseContext]);
+    if (!userBaseContext || !currentDate) {
+        console.log("Something not found:", { userBaseContext: !!userBaseContext, currentDate });
+        return (
+            <div className="todo-dairy">
+                <h2>Today's Todos</h2>
+                <div>
+                    <p>No todos available.</p>
+                </div>
+            </div>
+        );
+    }
 
+    console.log("Current Date:", currentDate);
+    console.log("All Diaries:", userBaseContext.diaries.map(d => ({ id: d.id, date: d.date })));
+
+    // Try to find diary by id first, then by date as fallback
+    const diaryEntry = userBaseContext.diaries.find(diary => 
+        diary.id === currentDate || diary.date === currentDate
+    );
+    
+    console.log("Found Diary Entry:", diaryEntry);
+    
+    const todos = diaryEntry?.todos || [];
 
     const handleTodoStatus = (e: React.MouseEvent<HTMLLIElement, MouseEvent>, index: number) => {
         e.stopPropagation();
@@ -25,40 +43,34 @@ export default function Todo() {
             }
         }
     }
-
+    console.log("Todos for today:", todos);
 
     return (
         <div className="todo-dairy">
-            <h2>Current Todo</h2>
-
-
-
-
+            <h2>Today's Todos</h2>
             <div>
-
-                {todos.length === 0 ? <p>No todos available.</p> : todos.map((todo, index) => (
-                    <div key={index}>
-                        <li className="main-todo" style={{ background: todo.color }} id={`todo-${index}`}
-                            onClick={(e) => handleTodoStatus(e, index)}>
-                            <span>{todo.title}</span>
-                            <span  ><i className="fa-solid fa-caret-down"></i></span>
-
-                        </li>
-                        <div className={`todo-status `} id={`todo-status-${index}`} style={{ display: 'none' }}>
-                            <div className="todo-final-status">
-                                {todo.status}
+                {todos.length === 0 ? (
+                    <p>No todos available.</p>
+                ) : (
+                    todos.map((todo: Todo, index: number) => (
+                        <div key={index}>
+                            <li className="main-todo" style={{ background: todo.color }} id={`todo-${index}`}
+                                onClick={(e) => handleTodoStatus(e, index)}>
+                                <span>{todo.title}</span>
+                                <span><i className="fa-solid fa-caret-down"></i></span>
+                            </li>
+                            <div className={`todo-status`} id={`todo-status-${index}`} style={{ display: 'none' }}>
+                                <div className="todo-final-status">
+                                    {todo.status}
+                                </div>
+                                <div className="todo-img-box">
+                                    <img src={todo.img} alt="" />
+                                </div>
                             </div>
-                            <div className="todo-img-box">
-                                <img src={todo.img} alt="" />
-                            </div>
-
                         </div>
-                    </div>
-                ))}
-
+                    ))
+                )}
             </div>
-
         </div>
-
     )
 }

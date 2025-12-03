@@ -12,6 +12,7 @@ import FullDairyPage from './Pages/FullDairyPage'
 import AddTodo from './Components/AddTodo'
 import UserLogin from './Components/UserLogin'
 import UserBaseContextProvider from './Context/UserBaseContextProvider'
+import DateContextProvider from './Context/DateContextProvider'
 
 function App() {
 
@@ -19,7 +20,8 @@ function App() {
   return (
     <>
       <UserBaseContextProvider>
-        <LibraryContextProvider>
+        <DateContextProvider>
+          <LibraryContextProvider>
 
           <div className='app-main'>
             <Logo />
@@ -35,8 +37,8 @@ function App() {
             <Add />
             <Nav />
           </div>
-        </LibraryContextProvider>
-
+          </LibraryContextProvider>
+        </DateContextProvider>
       </UserBaseContextProvider>
 
 

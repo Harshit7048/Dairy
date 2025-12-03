@@ -50,7 +50,7 @@
         color: white;
         font-size: 18px;
         margin-bottom: 10px;
-        background: rgb(84, 98, 101);
+        background: rgb(0, 0, 0);
         height: fit-content;
         border-radius: 15px;
         padding: 10px;
@@ -94,7 +94,7 @@
 
     .calendar-day-name {
         text-align: center;
-        font-size: 11px;
+        font-size: 12px;
         font-weight: 600;
         padding: 4px 0;
         color: rgba(255, 255, 255, 0.8);
@@ -110,7 +110,7 @@
         cursor: pointer;
         transition: background-color 0.2s ease;
         color: rgba(255, 255, 255, 0.9);
-        background-color: rgba(255, 255, 255, 0.1);
+        background-color: rgba(255, 255, 255, 0.2);
     }
 
     .calendar-day:hover {
@@ -127,7 +127,7 @@
     }
 
     .calendar-day-today {
-        background-color: rgb(176, 197, 239);
+        background-color: rgb(162, 189, 244);
         color: rgb(17, 17, 17);
         font-weight: 700;
         box-shadow: 0 0 8px rgba(176, 197, 239, 0.5);
