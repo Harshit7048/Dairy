@@ -1,6 +1,7 @@
-import React, { useEffect } from "react"
-import type { Todo, UserBase } from "../Context/types"
+import React, { useContext, useEffect } from "react"
+import type { Todo } from "../Context/types"
 import UserBaseContext from "../Context/UserBaseContext"
+import DateContext from "../Context/DateContext";
 
 export default function AddTodo() {
     const [todoTitle, setTodoTitle] = React.useState<string>("");
@@ -8,44 +9,38 @@ export default function AddTodo() {
     const [todoColor, setTodoColor] = React.useState<string>("#000000")
     const todoAddedRef = React.useRef<HTMLDivElement>(null);
 
-    const userBaseContext = React.useContext<UserBase | null>(UserBaseContext);
-    if (!userBaseContext) return null;
+    const currentDate = useContext(DateContext)
+
+    const userBaseContext = useContext(UserBaseContext);
+    if (!userBaseContext || !currentDate) return null;
+    const { addTodo } = userBaseContext;
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
-        console.log("Todo Title:", todoTitle);
-        console.log("Todo Date:", todoDate);
-        console.log("Todo Color:", todoColor);
+        if (!todoTitle || !todoDate) return;
 
         const newTodo: Todo = {
             title: todoTitle,
-            date: todoDate,
             color: todoColor,
             status: "Pending",
-
-        }
-        if (!userBaseContext.todos) {
-            return
-        }
-        userBaseContext.diaries.todos.push(newTodo);
-        console.log("Updated Todos:", userBaseContext.diaries.todos);
-
-
-
+        };
+        // Use context method to update todos in the current diary
+        addTodo(currentDate, newTodo);
+        setTodoTitle("");
+        setTodoDate("");
+        setTodoColor("#000000");
     }
+
     const showAnimation = () => {
         if (!todoAddedRef.current) return;
-        else if (todoAddedRef.current) {
-            todoAddedRef.current.classList.add("todo-visible");
-            setTimeout(() => {
+        todoAddedRef.current.classList.add("todo-visible");
+        setTimeout(() => {
+            if (todoAddedRef.current) {
                 todoAddedRef.current.classList.remove("todo-visible");
-            }, 1000);
-        }
+            }
+        }, 1000);
     };
-
-
-
 
     return <div>
         <div className="add-todo">

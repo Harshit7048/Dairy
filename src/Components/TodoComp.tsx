@@ -1,36 +1,11 @@
-import { useContext } from "react"
-import UserBaseContext from "../Context/UserBaseContext";
+import React from "react";
 import type { Todo } from "../Context/types";
-import DateContext from "../Context/DateContext";
 
+interface TodoListProps {
+    todos: Todo[];
+}
 
-export default function Todo() {
-    const userBaseContext = useContext(UserBaseContext);
-    const currentDate = useContext(DateContext);
-
-    if (!userBaseContext || !currentDate) {
-        console.log("Something not found:", { userBaseContext: !!userBaseContext, currentDate });
-        return (
-            <div className="todo-dairy">
-                <h2>Today's Todos</h2>
-                <div>
-                    <p>No todos available.</p>
-                </div>
-            </div>
-        );
-    }
-
-    console.log("Current Date:", currentDate);
-    console.log("All Diaries:", userBaseContext.diaries.map(d => ({ id: d.id, date: d.date })));
-
-    // Try to find diary by id first, then by date as fallback
-    const diaryEntry = userBaseContext.diaries.find(diary => 
-        diary.id === currentDate || diary.date === currentDate
-    );
-    
-    console.log("Found Diary Entry:", diaryEntry);
-    
-    const todos = diaryEntry?.todos || [];
+export default function TodoComp(props: TodoListProps) {
 
     const handleTodoStatus = (e: React.MouseEvent<HTMLLIElement, MouseEvent>, index: number) => {
         e.stopPropagation();
@@ -43,7 +18,11 @@ export default function Todo() {
             }
         }
     }
-    console.log("Todos for today:", todos);
+    // console.log("Todos for today:", todos);
+
+    // Safely get todos array with validation
+    const todos = Array.isArray(props.todos) ? props.todos : [];
+    // console.log(todos);
 
     return (
         <div className="todo-dairy">
@@ -63,9 +42,11 @@ export default function Todo() {
                                 <div className="todo-final-status">
                                     {todo.status}
                                 </div>
-                                <div className="todo-img-box">
-                                    <img src={todo.img} alt="" />
-                                </div>
+                                {todo.img && (
+                                    <div className="todo-img-box">
+                                        <img src={todo.img} alt={todo.title || "Todo image"} />
+                                    </div>
+                                )}
                             </div>
                         </div>
                     ))

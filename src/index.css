@@ -400,13 +400,27 @@
 
     }
 
+    .dairy-todos {
+        background-color: rgb(0, 0, 0);
+        margin-top: 10%;
+        padding: 10px;
+        border-radius: 15px;
+        box-shadow: 1px 1px 10px rgb(34, 34, 34, 0.5);
+    }
+
+    .dairy-todos h2 {
+        text-align: center;
+    }
+
+    /*  */
+
     .page-text {
         width: 50%;
     }
 
     .todo-dairy {
         background-color: rgb(30, 30, 31);
-        margin-top: 20%;
+        margin-top: 10%;
         border-radius: 15px;
         padding: 10px;
     }

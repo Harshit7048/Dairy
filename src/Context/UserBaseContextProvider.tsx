@@ -1,24 +1,38 @@
-import React, { ReactNode, useState } from "react";
+import { useState } from "react";
+import type { ReactNode } from "react";
 import UserBaseContext from "./UserBaseContext";
 import userBaseData from "../Assets/userBase";
-import type { UserBase } from "./types";
+import type { UserBase, Todo } from "./types";
 
 interface Props {
   children: ReactNode;
 }
 
 export default function UserBaseContextProvider({ children }: Props) {
-  const [userId, setUserId] = useState<number>(1);
+  const [userId] = useState<number>(1);
+  const [users, setUsers] = useState<UserBase[]>(userBaseData)
 
-  const userBaseDataFiltered = userBaseData.filter(
-    (user: UserBase) => user.userId === userId
-  );
+  const user = users.find((u) => u.userId === userId) || null;
 
-  const userBaseDataFinal =
-    userBaseDataFiltered.length > 0 ? userBaseDataFiltered[0] : null;
+  function addTodo(diaryId: string, todo: Todo) {
+    setUsers((prevUsers) =>
+      prevUsers.map((u) =>
+        u.userId === userId
+          ? {
+            ...u,
+            diaries: u.diaries.map((d) =>
+              d.id === diaryId
+                ? { ...d, todos: [...(d.todos ?? []), todo] }
+                : d
+            ),
+          }
+          : u
+      )
+    );
+  }
 
   return (
-    <UserBaseContext.Provider value={userBaseDataFinal}>
+    <UserBaseContext.Provider value={{ user, addTodo }}>
       {children}
     </UserBaseContext.Provider>
   );
