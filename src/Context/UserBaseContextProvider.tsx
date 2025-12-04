@@ -8,6 +8,8 @@ interface Props {
   children: ReactNode;
 }
 
+
+
 export default function UserBaseContextProvider({ children }: Props) {
   const [userId] = useState<number>(1);
   const [users, setUsers] = useState<UserBase[]>(userBaseData)
@@ -31,8 +33,35 @@ export default function UserBaseContextProvider({ children }: Props) {
     );
   }
 
+
+  function updateTodoStatus(diaryId: string, todoName: string, newStatus: "Completed" | "Pending") {
+    setUsers(prevUsers =>
+      prevUsers.map(u =>
+        u.userId === userId
+          ? {
+            ...u,
+            diaries: u.diaries.map(d =>
+              d.id === diaryId
+                ? {
+                  ...d,
+                  todos: d.todos?.map(t =>
+                    t.title === todoName
+                      ? { ...t, status: newStatus }
+                      : t
+                  )
+                }
+                : d
+            )
+          }
+          : u
+      )
+    );
+  }
+
+
+
   return (
-    <UserBaseContext.Provider value={{ user, addTodo }}>
+    <UserBaseContext.Provider value={{ user, addTodo, updateTodoStatus }}>
       {children}
     </UserBaseContext.Provider>
   );

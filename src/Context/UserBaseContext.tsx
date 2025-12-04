@@ -3,7 +3,8 @@ import type { UserBase, Todo } from "./types";
 
 export interface UserBaseContextType {
     user: UserBase | null;
-    addTodo: (diaryId: string, todo: Todo) => void;
+    addTodo: (diaryId: string, todo: Todo) => void
+    updateTodoStatus: (dairyId: string, todoName: string, newStatus: "Completed" | "Pending") => void
 }
 
 const UserBaseContext = createContext<UserBaseContextType | null>(null);

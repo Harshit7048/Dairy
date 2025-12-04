@@ -13,6 +13,6 @@ export default function Nav() {
             </NavLink>
 
         </div>
-        <div className="circ-des"></div>
+        {/* <div className="circ-des"></div> */}
     </div>
 }

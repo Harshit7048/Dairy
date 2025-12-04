@@ -28,16 +28,18 @@ export default function Add() {
         </div>
 
         <div className="add-btn"
-            onClick={() => {
-                if (sideBtnActive === "btn-deactive") {
-                    setSideBtnActive("btn-active")
-                } else {
-                    setSideBtnActive("btn-deactive")
-                }
-                console.log(sideBtnActive);
-            }}
+
         >
-            +
+            <div className="add-btn-inner-style"
+                onClick={() => {
+                    if (sideBtnActive === "btn-deactive") {
+                        setSideBtnActive("btn-active")
+                    } else {
+                        setSideBtnActive("btn-deactive")
+                    }
+                    console.log(sideBtnActive);
+                }}
+            >+</div>
         </div>
 
     </div>

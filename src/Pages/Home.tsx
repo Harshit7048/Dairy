@@ -41,6 +41,7 @@ export default function Home() {
         </div>
 
         <div className="current-day-info">
+            {todosCurrentDay.length <= 0 ? <h2>No Todos Added Yet</h2> : <h2>Today's Todos</h2>}
             <TodoComp todos={todosCurrentDay} />
         </div>
 

@@ -16,7 +16,7 @@
     .app-main {
         height: 100vh;
         width: 100%;
-        background: rgb(17, 17, 17);
+        background: rgb(25, 24, 24);
 
         padding: 1rem;
         position: relative;
@@ -175,9 +175,13 @@
         font-size: 25px;
     }
 
-    /* .current-day-info {
-        background-color: tan;
-    } */
+
+    .current-day-info h2 {
+        text-align: center;
+        padding-top: 20px;
+        color: white;
+        padding-bottom: 10px;
+    }
 
     /* Logo */
     .logo {
@@ -197,7 +201,7 @@
         left: 50%;
         transform: translateX(-50%);
 
-        height: 100px;
+        height: 8%;
 
         padding: 20px;
         background: rgb(50, 49, 51);
@@ -207,8 +211,8 @@
     }
 
     .circ-des {
-        height: 120px;
-        width: 120px;
+        /* height: 120px;
+        width: 120px; */
         border-radius: 50%;
         background-color: rgb(17, 17, 17);
         position: absolute;
@@ -245,7 +249,7 @@
 
     .nav-home i {
         /* color: white; */
-        font-size: 2.5rem;
+        font-size: 1.5rem;
         cursor: pointer;
     }
 
@@ -264,11 +268,23 @@
 
         position: fixed;
         right: 50%;
-        bottom: 15%;
+        bottom: 5%;
         transform: translateX(50%);
         cursor: pointer;
-        background-color: rgb(255, 255, 255);
+        background-color: rgb(25, 24, 24);
         z-index: 9999;
+    }
+
+    .add-btn-inner-style {
+        height: 80%;
+        width: 80%;
+        background-color: rgb(255, 255, 255);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+
     }
 
     .add-btn-main {
@@ -277,8 +293,10 @@
         left: 50%;
         transform: translateX(-50%);
         z-index: 1000;
-        height: 200px;
+        height: fit-content;
         width: 200px;
+        z-index: 9999;
+        margin-bottom: 2%;
         /* background: rebeccapurple; */
     }
 
@@ -311,6 +329,7 @@
         height: 100px;
         opacity: 0;
         transition: all 0.3s ease-in-out;
+        pointer-events: none;
     }
 
     .inner-btn {
@@ -420,7 +439,7 @@
 
     .todo-dairy {
         background-color: rgb(30, 30, 31);
-        margin-top: 10%;
+        margin-top: 2%;
         border-radius: 15px;
         padding: 10px;
     }

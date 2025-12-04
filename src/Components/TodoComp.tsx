@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useContext, type ReactEventHandler } from "react";
 import type { Todo } from "../Context/types";
+import UserBaseContext from "../Context/UserBaseContext";
+import DateContext from "../Context/DateContext";
 
 interface TodoListProps {
     todos: Todo[];
 }
 
 export default function TodoComp(props: TodoListProps) {
+
+    const { updateTodoStatus } = useContext(UserBaseContext)
 
     const handleTodoStatus = (e: React.MouseEvent<HTMLLIElement, MouseEvent>, index: number) => {
         e.stopPropagation();
@@ -18,6 +22,12 @@ export default function TodoComp(props: TodoListProps) {
             }
         }
     }
+
+    function handleTodoStatusUpdate(e: React.ChangeEvent<HTMLInputElement>, todo: Todo) {
+        const newStatus = e.target.checked ? "Completed" : "Pending";
+        updateTodoStatus(diaryId, todo.title, newStatus);
+    }
+
     // console.log("Todos for today:", todos);
 
     // Safely get todos array with validation
@@ -26,7 +36,7 @@ export default function TodoComp(props: TodoListProps) {
 
     return (
         <div className="todo-dairy">
-            <h2>Today's Todos</h2>
+            {/* <h2>Today's Todos</h2> */}
             <div>
                 {todos.length === 0 ? (
                     <p>No todos available.</p>
@@ -40,6 +50,12 @@ export default function TodoComp(props: TodoListProps) {
                             </li>
                             <div className={`todo-status`} id={`todo-status-${index}`} style={{ display: 'none' }}>
                                 <div className="todo-final-status">
+                                    <input type="checkbox" name="updateStatus" id={`todo-status-final${index}`}
+                                        checked={todo.status === "Completed"}
+                                        onChange={(e) => handleTodoStatusUpdate(e, todo)}
+
+
+                                    />
                                     {todo.status}
                                 </div>
                                 {todo.img && (
