@@ -8,8 +8,8 @@ const userBaseData: UserBase[] = [
         password: "password123",
         diaries: [
             {
-                id: "2025-12-04",
-                date: "2025-12-04",
+                id: "2025-12-08",
+                date: "2025-12-08",
                 title: "My First Diary Entry",
                 content:
                     "Today was a great day! I went to the park and enjoyed the sunshine.",
@@ -17,14 +17,14 @@ const userBaseData: UserBase[] = [
                     "https://artmarketmag.com/wp-content/uploads/2025/03/Cran-Montana-100-x-100-cm.jpg ",
                 todos: [
                     {
-
+                        parentDairyId: "2025-12-08",
                         title: "Go for a walk",
                         color: "#FFDDC1",
                         status: "Completed",
                         img: " https://artmarketmag.com/wp-content/uploads/2025/03/Cran-Montana-100-x-100-cm.jpg",
                     },
                     {
-
+                        parentDairyId: "2025-12-08",
                         title: "Read a book",
                         color: "#C1E1FF",
                         status: "in-progress",

@@ -21,6 +21,7 @@ export default function AddTodo() {
         if (!todoTitle || !todoDate) return;
 
         const newTodo: Todo = {
+            parentDairyId: currentDate,
             title: todoTitle,
             color: todoColor,
             status: "Pending",

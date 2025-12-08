@@ -53,7 +53,7 @@ export default function Home() {
             }
             console.log(classCurrent);
         }}>
-            <span>See Previous</span>
+            <span>Diary Entries</span>
             <span  ><i className="fa-solid fa-caret-down"></i></span>
         </div>
         <div className={`prev-entry ${classCurrent}`}  >

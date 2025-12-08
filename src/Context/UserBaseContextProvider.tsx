@@ -33,8 +33,15 @@ export default function UserBaseContextProvider({ children }: Props) {
     );
   }
 
+  // function updateTodoStatus(diaryId: string, todoTitle: string) {
+  //   const todo = user?.diaries.find(ele => ele.id === diaryId)?.todos?.find(t => t.title === todoTitle);
+  //   if (!todo) return
 
-  function updateTodoStatus(diaryId: string, todoName: string, newStatus: "Completed" | "Pending") {
+  //   if (todo.status === "Completed") return
+  //   todo.status = "Completed"
+  //   console.log("status updated", todo);
+  // }
+  function updateTodoStatus(diaryId: string, todoTitle: string) {
     setUsers(prevUsers =>
       prevUsers.map(u =>
         u.userId === userId
@@ -44,14 +51,37 @@ export default function UserBaseContextProvider({ children }: Props) {
               d.id === diaryId
                 ? {
                   ...d,
-                  todos: d.todos?.map(t =>
-                    t.title === todoName
-                      ? { ...t, status: newStatus }
+                  todos: (d.todos ?? []).map(t =>
+                    t.title === todoTitle
+                      ? { ...t, status: "Completed" }
                       : t
-                  )
+                  ),
                 }
                 : d
-            )
+            ),
+          }
+          : u
+      )
+    );
+  }
+  function updateHighLightImageTodo(diaryId: string, todoTitle: string, newImg: string) {
+    setUsers(prevUsers =>
+      prevUsers.map(u =>
+        u.userId === userId
+          ? {
+            ...u,
+            diaries: u.diaries.map(d =>
+              d.id === diaryId
+                ? {
+                  ...d,
+                  todos: (d.todos ?? []).map(t =>
+                    t.title === todoTitle
+                      ? { ...t, img: newImg }
+                      : t
+                  ),
+                }
+                : d
+            ),
           }
           : u
       )
@@ -60,8 +90,9 @@ export default function UserBaseContextProvider({ children }: Props) {
 
 
 
+
   return (
-    <UserBaseContext.Provider value={{ user, addTodo, updateTodoStatus }}>
+    <UserBaseContext.Provider value={{ user, addTodo, updateTodoStatus, updateHighLightImageTodo }}>
       {children}
     </UserBaseContext.Provider>
   );

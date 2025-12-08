@@ -2,7 +2,7 @@
 type TodoStatus = "Completed" | "Pending" | "in-progress";
 
 export interface Todo {
-
+    parentDairyId: string;
     title: string;
     color: string;
     status: TodoStatus;

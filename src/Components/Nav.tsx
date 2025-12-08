@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom"
+import Add from "./Add"
 
 
 export default function Nav() {
@@ -11,7 +12,7 @@ export default function Nav() {
             <NavLink to={'/login_user'}>
                 <i className="fa-solid fa-user"></i>
             </NavLink>
-
+            <Add />
         </div>
         {/* <div className="circ-des"></div> */}
     </div>

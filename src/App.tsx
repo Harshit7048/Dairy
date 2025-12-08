@@ -23,20 +23,20 @@ function App() {
         <DateContextProvider>
           <LibraryContextProvider>
 
-          <div className='app-main'>
-            <Logo />
-            <Routes>
-              <Route path='/' element={<Home />} />
-              <Route path='/add' element={<Add />} />
-              <Route path='/login_user' element={<UserLogin />} />
-              <Route path='/add-todo' element={<AddTodo />} />
-              <Route path='/full-dairy/:currentId' element={<FullDairyPage />} />
+            <div className='app-main'>
+              <Logo />
+              <Routes>
+                <Route path='/' element={<Home />} />
+                <Route path='/add' element={<Add />} />
+                <Route path='/login_user' element={<UserLogin />} />
+                <Route path='/add-todo' element={<AddTodo />} />
+                <Route path='/full-dairy/:currentId' element={<FullDairyPage />} />
 
-            </Routes>
-            {/* <Home /> */}
-            <Add />
-            <Nav />
-          </div>
+              </Routes>
+              {/* <Home /> */}
+
+              <Nav />
+            </div>
           </LibraryContextProvider>
         </DateContextProvider>
       </UserBaseContextProvider>
