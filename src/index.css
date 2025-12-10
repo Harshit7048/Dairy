@@ -16,10 +16,12 @@
     .app-main {
         height: 100vh;
         width: 100%;
-        background: rgb(25, 24, 24);
+        background: linear-gradient(to bottom, rgb(150, 145, 145), 50%, transparent);
 
         padding: 1rem;
         position: relative;
+        background: linear-gradient(120deg, #f8cdda 0%, #a1c4fd 100%);
+        background: white;
         overflow: hidden;
         font-family: "Montserrat", sans-serif;
 
@@ -47,7 +49,7 @@
 
 
     .overall-info {
-        color: white;
+        color: rgb(0, 0, 0);
         font-size: 18px;
         margin-bottom: 10px;
         background: rgb(0, 0, 0);
@@ -71,6 +73,7 @@
         flex-direction: column;
         color: white;
         padding: 5px;
+        box-shadow: 1px 1px 30px rgb(36, 35, 35);
     }
 
     .calendar-header {
@@ -161,14 +164,14 @@
 
     .see-prev {
         height: 7%;
-        background-color: rgb(50, 49, 51);
+        background-color: rgb(224, 159, 159);
         margin-top: 10px;
         border-radius: 15px;
         padding: 10px;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        color: white;
+        color: rgb(0, 0, 0);
     }
 
     .see-prev span i {
@@ -179,7 +182,7 @@
     .current-day-info h2 {
         text-align: center;
         padding-top: 20px;
-        color: white;
+        color: rgb(0, 0, 0);
         padding-bottom: 10px;
     }
 
@@ -189,7 +192,7 @@
         font-family: "Montserrat", sans-serif;
         font-weight: 800;
         text-align: center;
-        color: white;
+        color: rgb(0, 0, 0);
 
     }
 
@@ -204,9 +207,10 @@
         height: 8%;
 
         padding: 20px;
-        background: rgb(50, 49, 51);
+        background: rgb(255, 255, 255);
         border-top-left-radius: 40px;
         border-top-right-radius: 40px;
+        box-shadow: -1px -1px 20px rgb(240, 200, 200);
 
     }
 
@@ -214,9 +218,9 @@
         /* height: 120px;
         width: 120px; */
         border-radius: 50%;
-        background-color: rgb(17, 17, 17);
+        background-color: #a1c4fd;
         position: absolute;
-        top: -30%;
+        top: -0%;
         right: 50%;
         transform: translateX(50%);
         z-index: 99;
@@ -234,7 +238,7 @@
     }
 
     .nav-home a {
-        color: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
         display: block;
         margin-top: 0px !important;
         padding-bottom: 0px !important;
@@ -271,14 +275,14 @@
         bottom: 0%;
         transform: translateX(50%);
         cursor: pointer;
-        background-color: rgb(25, 24, 24);
+        background-color: rgb(255, 255, 255);
         z-index: 9999;
     }
 
     .add-btn-inner-style {
         height: 80%;
         width: 80%;
-        background-color: rgb(255, 255, 255);
+        background-color: rgb(228, 168, 168);
         border-radius: 50%;
         display: flex;
         align-items: center;
@@ -289,14 +293,14 @@
 
     .add-btn-main {
         position: absolute;
-        bottom: 0;
+        bottom: -20%;
         left: 50%;
         transform: translateX(-50%);
         z-index: 1000;
         height: fit-content;
         width: 200px;
         z-index: 9999;
-        margin-bottom: 2%;
+        margin-bottom: 0%;
         /* background: rebeccapurple; */
     }
 
@@ -438,7 +442,7 @@
     }
 
     .todo-dairy {
-        background-color: rgb(30, 30, 31);
+        background-color: rgb(245, 195, 195);
         margin-top: 2%;
         border-radius: 15px;
         padding: 10px;
@@ -732,7 +736,7 @@
     }
 
     .quotes {
-        color: white;
+        color: rgb(0, 0, 0);
         display: flex;
         flex-direction: column;
         gap: 5px;
@@ -850,5 +854,66 @@
     .dairy-p {
         font-weight: 800;
         text-align: center;
+    }
+
+    /* Ratings */
+    .ratings-box {
+        /* background-color: rebeccapurple; */
+        /* padding: 10px; */
+        border-radius: 10px;
+        margin-bottom: 50px;
+
+    }
+
+    .ratings {
+        background-color: rgb(195, 182, 182);
+        border-radius: 10px;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        height: 20vh;
+        background: white;
+        box-shadow: 1px 1px 20px rgb(247, 208, 208);
+
+    }
+
+    .main-rating {
+        height: 100px;
+        width: 100px;
+        background-color: red;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        margin-top: 5%;
+    }
+
+    .inner-rating {
+        height: 90%;
+        width: 90%;
+        background-color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+    }
+
+    .rating-info {
+        width: 55%;
+        /* background-color: rebeccapurple; */
+    }
+
+    .rating-info .status-rating p {
+        color: rgb(180, 174, 186);
+        font-weight: 800;
+        padding-top: 10px;
+        font-size: 1.2rem;
+
+    }
+
+    .rating-info .status-rating hr {
+        width: 90%;
+        margin-top: 5px;
     }
 }

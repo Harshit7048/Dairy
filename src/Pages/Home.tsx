@@ -7,6 +7,7 @@ import Calender from "../Components/Calender";
 import DateContext from "../Context/DateContext.js"
 import TodoComp from "../Components/TodoComp.js"
 import DayOverview from "../Components/DayOverview.js";
+import Ratings from "../Components/Ratings.js";
 
 
 export default function Home() {
@@ -37,6 +38,11 @@ export default function Home() {
     return <div className="home">
         <h1></h1>
         <Quotes />
+
+        <div className="ratings-box">
+            <Ratings />
+        </div>
+
         <div className="overall-info">
             <Calender />
         </div>
