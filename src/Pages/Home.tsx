@@ -36,46 +36,48 @@ export default function Home() {
     const todosCurrentDay: Todo[] = Array.isArray(diaryEntry?.todos) ? diaryEntry.todos : []
 
     return <div className="home">
-        <h1></h1>
-        <Quotes />
+        <div className="home-inner">
+            <Quotes />
 
-        <div className="ratings-box">
-            <Ratings />
+            <div className="ratings-box">
+                <Ratings />
+            </div>
+
+            <div className="overall-info">
+                <Calender />
+            </div>
+
+            <div className="current-day-info">
+                {todosCurrentDay.length <= 0 ? <h2>No Todos Added Yet</h2> : <h2>Today's Todos</h2>}
+                <TodoComp todos={todosCurrentDay} />
+            </div>
+
+            <div className="see-prev" onClick={() => {
+                if (classCurrent === "deactive") {
+                    setClassCurrent("active")
+                } else {
+                    setClassCurrent("deactive")
+                }
+                console.log(classCurrent);
+            }}>
+                <span>Diary Entries</span>
+                <span  ><i className="fa-solid fa-caret-down"></i></span>
+            </div>
+            <div className={`prev-entry ${classCurrent}`}  >
+                {dairyData ? dairyData.map((diaryEntry: Diary, index: number) => (
+                    <DayOverview
+                        key={index}
+                        id={(diaryEntry.id)}
+                        title={diaryEntry.title}
+                        content={diaryEntry.content}
+                        date={diaryEntry.date}
+                        main_img={diaryEntry.main_img}
+                    />
+                )) : null}
+            </div>
+
+            {/* <ExampleScreen /> */}
         </div>
 
-        <div className="overall-info">
-            <Calender />
-        </div>
-
-        <div className="current-day-info">
-            {todosCurrentDay.length <= 0 ? <h2>No Todos Added Yet</h2> : <h2>Today's Todos</h2>}
-            <TodoComp todos={todosCurrentDay} />
-        </div>
-
-        <div className="see-prev" onClick={() => {
-            if (classCurrent === "deactive") {
-                setClassCurrent("active")
-            } else {
-                setClassCurrent("deactive")
-            }
-            console.log(classCurrent);
-        }}>
-            <span>Diary Entries</span>
-            <span  ><i className="fa-solid fa-caret-down"></i></span>
-        </div>
-        <div className={`prev-entry ${classCurrent}`}  >
-            {dairyData ? dairyData.map((diaryEntry: Diary, index: number) => (
-                <DayOverview
-                    key={index}
-                    id={(diaryEntry.id)}
-                    title={diaryEntry.title}
-                    content={diaryEntry.content}
-                    date={diaryEntry.date}
-                    main_img={diaryEntry.main_img}
-                />
-            )) : null}
-        </div>
-
-        {/* <ExampleScreen /> */}
     </div>
 }

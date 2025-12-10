@@ -1,8 +1,16 @@
+import { useEffect, useState } from "react"
+
 export default function Ratings() {
+
+    const [rating, setRating] = useState(4)
+
+
+
+
     return <div className="ratings">
         <div className="main-rating">
             <div className="inner-rating">
-                4.5 / 5
+                {rating} / 5
             </div>
         </div>
         <div className="rating-info">
