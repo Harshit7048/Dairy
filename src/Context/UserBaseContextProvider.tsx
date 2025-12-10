@@ -2,7 +2,7 @@ import { useState } from "react";
 import type { ReactNode } from "react";
 import UserBaseContext from "./UserBaseContext";
 import userBaseData from "../Assets/userBase";
-import type { UserBase, Todo } from "./types";
+import type { UserBase, Todo, Diary } from "./types";
 
 interface Props {
   children: ReactNode;
@@ -64,6 +64,28 @@ export default function UserBaseContextProvider({ children }: Props) {
       )
     );
   }
+
+  function AddDiaryEntry(newDiary: Diary) {
+    alert("new dairy captured")
+    console.log(newDiary);
+    setUsers(prevUsers =>
+      prevUsers.map(u =>
+        u.userId === userId
+          ? {
+            ...u,
+            diaries: [...u.diaries, newDiary]
+          }
+          : u
+      )
+    )
+  }
+
+  // function EditDairy(){
+
+  // }
+
+
+
   function updateHighLightImageTodo(diaryId: string, todoTitle: string, newImg: string) {
     setUsers(prevUsers =>
       prevUsers.map(u =>
@@ -92,7 +114,7 @@ export default function UserBaseContextProvider({ children }: Props) {
 
 
   return (
-    <UserBaseContext.Provider value={{ user, addTodo, updateTodoStatus, updateHighLightImageTodo }}>
+    <UserBaseContext.Provider value={{ user, addTodo, updateTodoStatus, AddDiaryEntry, updateHighLightImageTodo }}>
       {children}
     </UserBaseContext.Provider>
   );

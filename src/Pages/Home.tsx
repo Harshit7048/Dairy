@@ -8,6 +8,7 @@ import DateContext from "../Context/DateContext.js"
 import TodoComp from "../Components/TodoComp.js"
 import DayOverview from "../Components/DayOverview.js";
 
+
 export default function Home() {
     const userBaseContext = useContext(UserBaseContext);
     const user = userBaseContext?.user;
@@ -68,5 +69,7 @@ export default function Home() {
                 />
             )) : null}
         </div>
+
+        {/* <ExampleScreen /> */}
     </div>
 }

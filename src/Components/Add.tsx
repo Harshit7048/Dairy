@@ -24,7 +24,13 @@ export default function Add() {
                 }>
                 Add ToDo
             </div>
-            <div className="bottom-btn inner-btn">Add Journal</div>
+            <div className="bottom-btn inner-btn"
+                onClick={() => {
+                    navigate('/add-dairy')
+                    setSideBtnActive("btn-deactive")
+                }
+                }
+            >Add Journal</div>
         </div>
 
         <div className="add-btn"

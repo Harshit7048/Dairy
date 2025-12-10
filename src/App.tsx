@@ -13,6 +13,7 @@ import AddTodo from './Components/AddTodo'
 import UserLogin from './Components/UserLogin'
 import UserBaseContextProvider from './Context/UserBaseContextProvider'
 import DateContextProvider from './Context/DateContextProvider'
+import CreateDairy from './Components/CreateDiary'
 
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
                 <Route path='/add' element={<Add />} />
                 <Route path='/login_user' element={<UserLogin />} />
                 <Route path='/add-todo' element={<AddTodo />} />
+                <Route path='/add-dairy' element={<CreateDairy />} />
                 <Route path='/full-dairy/:currentId' element={<FullDairyPage />} />
 
               </Routes>
